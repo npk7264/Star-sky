@@ -1,8 +1,8 @@
 function musicPlay() {
-  document.getElementById('playAudio').play();
-  document.removeEventListener('click', musicPlay);
+  document.getElementById("playAudio").play();
+  document.removeEventListener("click", musicPlay);
 }
-document.addEventListener('click', musicPlay);
+document.addEventListener("click", musicPlay);
 
 const backgroundColor = "#030318";
 const width = window.innerWidth;
@@ -58,12 +58,33 @@ function render() {
   ctx.fillStyle = backgroundColor;
   ctx.fillRect(0, 0, width, height);
 
+  const center_x = width / 2;
+  const center_y = height / 2;
+  const opct = getOpacity(counter);
+
+  fillCircle(ctx, center_x, 15, Math.random() * maxStarRadius, `rgba(255, 255, 255, ${opct})`);
+  fillCircle(ctx, center_x-10, 10, Math.random() * maxStarRadius, `rgba(255, 255, 255, ${opct})`);
+  fillCircle(ctx, center_x+10, 10, Math.random() * maxStarRadius, `rgba(255, 255, 255, ${opct})`);
+  fillCircle(ctx, center_x-20, 10, Math.random() * maxStarRadius, `rgba(255, 255, 255, ${opct})`);
+  fillCircle(ctx, center_x+20, 10, Math.random() * maxStarRadius, `rgba(255, 255, 255, ${opct})`)
+  // fillCircle(ctx, center_x-30, 15, Math.random() * maxStarRadius, `rgba(255, 255, 255, ${opct})`);
+  fillCircle(ctx, center_x+25, 15, Math.random() * maxStarRadius, `rgba(255, 255, 255, ${opct})`)
+  fillCircle(ctx, center_x-25, 20, Math.random() * maxStarRadius, `rgba(255, 255, 255, ${opct})`);
+  // fillCircle(ctx, center_x+30, 20, Math.random() * maxStarRadius, `rgba(255, 255, 255, ${opct})`)
+  fillCircle(ctx, center_x-20, 30, Math.random() * maxStarRadius, `rgba(255, 255, 255, ${opct})`);
+  fillCircle(ctx, center_x+20, 30, Math.random() * maxStarRadius, `rgba(255, 255, 255, ${opct})`)
+  // fillCircle(ctx, center_x-10, 40, Math.random() * maxStarRadius, `rgba(255, 255, 255, ${opct})`);
+  fillCircle(ctx, center_x+10, 40, Math.random() * maxStarRadius, `rgba(255, 255, 255, ${opct})`)
+  fillCircle(ctx, center_x-5, 45, Math.random() * maxStarRadius, `rgba(255, 255, 255, ${opct})`);
+  // fillCircle(ctx, center_x+5, 45, Math.random() * maxStarRadius, `rgba(255, 255, 255, ${opct})`)
+  fillCircle(ctx, center_x, 50, Math.random() * maxStarRadius, `rgba(255, 255, 255, ${opct})`)
+
   stars.forEach(function (star, i) {
     const factor = counter * i;
     const x = star.x;
     const y = star.y;
     const opacity = getOpacity(factor);
-    fillCircle(ctx, x, y, star.r, `rgba(255, 255, 255, ${opacity}`);
+    fillCircle(ctx, x, y, star.r, `rgba(255, 255, 255, ${opacity})`);
   });
 
   counter++;

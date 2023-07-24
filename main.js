@@ -1,3 +1,9 @@
+function musicPlay() {
+  document.getElementById('playAudio').play();
+  document.removeEventListener('click', musicPlay);
+}
+document.addEventListener('click', musicPlay);
+
 const backgroundColor = "#030318";
 const width = window.innerWidth;
 const height = window.innerHeight;
